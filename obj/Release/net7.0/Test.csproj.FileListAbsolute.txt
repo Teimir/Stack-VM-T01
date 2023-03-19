@@ -1,0 +1,15 @@
+F:\Projects\Test\bin\Release\net7.0\Test.exe
+F:\Projects\Test\bin\Release\net7.0\Test.deps.json
+F:\Projects\Test\bin\Release\net7.0\Test.runtimeconfig.json
+F:\Projects\Test\bin\Release\net7.0\Test.dll
+F:\Projects\Test\bin\Release\net7.0\Test.pdb
+F:\Projects\Test\obj\Release\net7.0\Test.csproj.AssemblyReference.cache
+F:\Projects\Test\obj\Release\net7.0\Test.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projects\Test\obj\Release\net7.0\Test.AssemblyInfoInputs.cache
+F:\Projects\Test\obj\Release\net7.0\Test.AssemblyInfo.cs
+F:\Projects\Test\obj\Release\net7.0\Test.csproj.CoreCompileInputs.cache
+F:\Projects\Test\obj\Release\net7.0\Test.dll
+F:\Projects\Test\obj\Release\net7.0\refint\Test.dll
+F:\Projects\Test\obj\Release\net7.0\Test.pdb
+F:\Projects\Test\obj\Release\net7.0\Test.genruntimeconfig.cache
+F:\Projects\Test\obj\Release\net7.0\ref\Test.dll
