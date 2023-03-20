@@ -4,18 +4,21 @@ using Test;
 class VirtualMachine
 {
     private int[] memory;
-    private int pc = 0;
+    private int pc;
     private int sp;
     private bool zeroFlag;
     private bool negativeFlag;
     DiscController controller;
+    private int[] stack;
 
 
-    public VirtualMachine(int memSize, string diskname)
+    public VirtualMachine(int memSize, int stackSize, string diskname)
     {
         controller = new DiscController(diskname);
         memory = new int[memSize];
+        stack = new int[stackSize];
         sp = -1;
+        pc = 0;
     }
 
     public void LoadProgram(int[] program)
@@ -234,15 +237,19 @@ class VirtualMachine
 
     private void Push(int value)
     {
-        sp++;
-        memory[sp] = value;
+        if (sp < stack.Length)
+        {
+            sp++;
+            stack[sp] = value;
+        }
+        else throw new Exception("Stack overflow, Стек переполнен");
     }
 
     private int Pop()
     {
         if (sp == -1)
             throw new Exception("Stack is empty, Стек пуст");
-        int value = memory[sp];
+        int value = stack[sp];
         sp--;
         return value;
     }
@@ -291,7 +298,7 @@ class Program
     {
         const string filename = "disc0.txt";
         int[] program = {0x30, 0x10, 0x0a, 0x31, 0x31, 0x10, 0x0a, 0x31, 0xff };
-        VirtualMachine vm = new VirtualMachine(256, filename);
+        VirtualMachine vm = new VirtualMachine(256, 50, filename);
         vm.LoadProgram(program);
         vm.Run();
         Console.WriteLine("Процесс завершён нажмите любую клавишу для продолжения");
