@@ -20,6 +20,8 @@ namespace Test
         JZ = 0x60,
         JNZ = 0x61,
         JMP = 0x60,
+        SWP = 0x70,
+        DUP = 0x71,
         HLT = 0xff
     }
     internal class Compiler

@@ -103,7 +103,7 @@ class VirtualMachine
                             pc += 1;
                         }
                         break;
-                    case 0x61: // Jump if not zero
+                    case 0x61: // Jump if less
                         if (zeroFlag == false)
                         {
                             pc = memory[Pop()];
@@ -115,6 +115,14 @@ class VirtualMachine
                         break;
                     case 0x62: //jump
                         pc = memory[Pop()];
+                        break;
+                    case 0x70: //Swap
+                        Swap();
+                        pc += 1;
+                        break;
+                    case 0x71: //Dup
+                        Dup();
+                        pc += 1;
                         break;
                     case 0xff: // Stop instruction
                         isRunning = false;
@@ -252,7 +260,20 @@ class VirtualMachine
         Console.Write((char)asciiCode); // выводим ASCII символ на экран
     }
 
+    public void Swap()
+    {
+        int a = Pop();
+        int b = Pop();
+        Push(a);
+        Push(b);
+    }
 
+    public void Dup()
+    {
+        int a = Pop();
+        Push(a);
+        Push(a);
+    }
 
 }
 
@@ -270,7 +291,7 @@ class Program
     {
         const string filename = "disc0.txt";
         int[] program = {0x30, 0x10, 0x0a, 0x31, 0x31, 0x10, 0x0a, 0x31, 0xff };
-        VirtualMachine vm = new VirtualMachine(256, "disk0");
+        VirtualMachine vm = new VirtualMachine(256, filename);
         vm.LoadProgram(program);
         vm.Run();
         Console.WriteLine("Процесс завершён нажмите любую клавишу для продолжения");

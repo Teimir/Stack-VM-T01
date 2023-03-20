@@ -10,6 +10,6 @@ Commands
         LOAD = 0x41,
         CMP = 0x50,
         JZ = 0x60,
-        JNZ = 0x61,
+        JLS = 0x61,
         JMP = 0x60,
         HLT = 0xff,
