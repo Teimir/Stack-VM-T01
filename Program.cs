@@ -37,14 +37,19 @@ class VirtualMachine
                 switch (opcode)
                 {
                     case 0x10: // Push
-                        int value = memory[pc + 1];
+                        int value = memory[Pop()];
                         Push(value);
-                        pc += 2;
+                        pc += 1;
                         break;
                     case 0x11: // Pop
                         int val = Pop();
                         memory[Pop()] = val;
                         pc += 1;
+                        break;
+                    case 0x12: // Push next cell
+                        int value2 = memory[pc + 1];
+                        Push(value2);
+                        pc += 2;
                         break;
                     case 0x20: // Add
                         int a = Pop();

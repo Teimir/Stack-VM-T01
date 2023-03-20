@@ -2,6 +2,7 @@
 Commands
         PUSH = 0x10,
         POP = 0x11,
+        PNC = 0x12,
         ADD = 0x20,
         SUB = 0x21,
         READ = 0x30,
