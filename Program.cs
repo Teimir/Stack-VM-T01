@@ -41,7 +41,7 @@ class VirtualMachine
                     case 0x11: // Pop
                         int val = Pop();
                         memory[Pop()] = val;
-                        pc += 2;
+                        pc += 1;
                         break;
                     case 0x20: // Add
                         int a = Pop();
