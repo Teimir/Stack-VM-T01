@@ -112,7 +112,7 @@ class VirtualMachine
                         }
                         break;
                     case 0x61: // Jump if less
-                        if (zeroFlag == false)
+                        if (negativeFlag == true)
                         {
                             pc = memory[Pop()];
                         }
