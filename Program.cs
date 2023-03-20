@@ -67,7 +67,7 @@ class VirtualMachine
                         Push(GetChar());
                         pc += 1;
                         break;
-                    case 0x31:
+                    case 0x31: // write symbol
                         PrintAsciiChar();
                         pc += 1;
                         break;
@@ -302,7 +302,7 @@ class Program
     static void Main()
     {
         const string filename = "disc0.txt";
-        int[] program = {0x30, 0x10, 0x0a, 0x31, 0x31, 0x10, 0x0a, 0x31, 0xff };
+        int[] program = {0x30, 0x12, 0x0a, 0x31, 0x31, 0x12, 0x0a, 0x31, 0xff };
         VirtualMachine vm = new VirtualMachine(256, 50, filename);
         vm.LoadProgram(program);
         vm.Run();
